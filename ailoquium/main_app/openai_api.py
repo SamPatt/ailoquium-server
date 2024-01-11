@@ -22,8 +22,6 @@ def send_message_to_openai(user_message):
         print(f"Error in sending message to OpenAI: {e}")
         return None
 
-
-
 def modify_openai_response(api_response):
     # Add your logic to modify the OpenAI API response
     # For example, you might want to format it or extract certain information
