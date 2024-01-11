@@ -16,6 +16,9 @@ class AIView(APIView):
         serializer = AIMessageSerializer(data=request.data)
         if serializer.is_valid():
             user_message = serializer.validated_data['message']
+            example_flag = serializer.validated_data.get('example_flag', False)
+            print(user_message)
+            print(example_flag)
             
             message_check = check_for_prompt_hacking(user_message)
 

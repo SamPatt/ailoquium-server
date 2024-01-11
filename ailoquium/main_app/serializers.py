@@ -13,3 +13,4 @@ class ScoreSerializer(serializers.ModelSerializer):
 
 class AIMessageSerializer(serializers.Serializer):
     message = serializers.CharField()
+    example_flag = serializers.BooleanField(required=False)
