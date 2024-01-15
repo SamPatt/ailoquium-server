@@ -8,7 +8,7 @@ def send_message_to_openai(user_message):
     try:
         chat_completion = client.chat.completions.create(
             messages=[
-                {"role": "system", "content": "You are an AI librarian."},
+                {"role": "system", "content": "You are running a game where the human user is playing a doctor treating AI patients, with the help of an AI assistant. You will respond as the patient or as the assistant depending on the request."},
                 {"role": "user", "content": user_message}
             ],
             model="gpt-3.5-turbo",
