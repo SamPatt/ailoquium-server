@@ -18,6 +18,13 @@ class AIView(APIView):
             user_message = serializer.validated_data['message']
             secret_phrase = serializer.validated_data.get('secret_phrase')
             is_first_message = serializer.validated_data.get('is_first_message')
+            print(request.session.session_key)
+            print(request.session.get('message_history'))
+
+            if not request.session.session_key:
+                request.session['init'] = 1  # Initialize session
+                request.session.save()
+
 
             message_history = request.session.get('message_history', [])
 
@@ -27,13 +34,14 @@ class AIView(APIView):
                 ]
             
             # Send message and history to OpenAI
-            response_from_openai = send_message_to_openai(user_message, message_history)
+            response_from_openai, message_history = send_message_to_openai(user_message, message_history)
             message_check = check_for_secret_phrase(response_from_openai, secret_phrase)
 
             # Update message history in the session
             request.session['message_history'] = message_history
+            request.session.save()
             print("IS FIRST MESSAGE: ", is_first_message)
-            print(message_history)
+            print("MESSAGE HISTORY: ", message_history)
 
             if message_check:
                 return Response({'response': response_from_openai, 'success': True})
