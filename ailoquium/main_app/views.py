@@ -18,6 +18,8 @@ class AIView(APIView):
             user_message = serializer.validated_data['message']
             secret_phrase = serializer.validated_data.get('secret_phrase')
             is_first_message = serializer.validated_data.get('is_first_message')
+            role = serializer.validated_data.get('role')
+
             print(request.session.session_key)
             print(request.session.get('message_history'))
 
@@ -44,7 +46,7 @@ class AIView(APIView):
             print("MESSAGE HISTORY: ", message_history)
 
             if message_check:
-                return Response({'response': response_from_openai, 'success': True})
+                return Response({'response': response_from_openai, 'success': True, 'role': role})
             else:
-                return Response({'response': response_from_openai, 'success': False})
+                return Response({'response': response_from_openai, 'success': False, 'role': role})
         return Response(serializer.errors, status=400)
