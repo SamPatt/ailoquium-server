@@ -14,3 +14,4 @@ class ScoreSerializer(serializers.ModelSerializer):
 class AIMessageSerializer(serializers.Serializer):
     message = serializers.CharField()
     secret_phrase = serializers.CharField()
+    is_first_message = serializers.BooleanField()
