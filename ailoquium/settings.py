@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'main_app.apps.MainAppConfig',
+    'main_app',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -145,8 +145,6 @@ CORS_ORIGIN_WHITELIST = [
 SESSION_COOKIE_SAMESITE = 'None'
 
 SESSION_COOKIE_SECURE = True
-
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Configure Django App for Heroku, comment out when running locally
 import django_heroku

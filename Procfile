@@ -1,1 +1,1 @@
-web: gunicorn ailoquium.ailoquium.wsgi
+web: gunicorn ailoquium.wsgi
