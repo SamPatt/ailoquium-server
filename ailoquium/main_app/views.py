@@ -1,15 +1,19 @@
 from django.shortcuts import render
-from .models import Score
+from .models import Score, TotalScore
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import ScoreSerializer, AIMessageSerializer
+from .serializers import ScoreSerializer, TotalScoreSerializer, AIMessageSerializer
 from .openai_api import send_message_to_openai, modify_openai_response
 from .utilities import check_for_secret_phrase
 
 class ScoreViewSet(viewsets.ModelViewSet):
     queryset = Score.objects.all()
     serializer_class = ScoreSerializer
+
+class TotalScoreViewSet(viewsets.ModelViewSet):
+    queryset = TotalScore.objects.all()
+    serializer_class = TotalScoreSerializer
 
 class AIView(APIView):
     def post(self, request, *args, **kwargs):

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Score
+from .models import Score, TotalScore
 
 
 class ScoreSerializer(serializers.ModelSerializer):
@@ -8,6 +8,14 @@ class ScoreSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Score
+
+        fields = '__all__'
+
+class TotalScoreSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = TotalScore
 
         fields = '__all__'
 
