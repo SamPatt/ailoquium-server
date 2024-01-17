@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'ailoquium.main_app',
+    'main_app',
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
