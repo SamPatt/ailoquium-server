@@ -145,3 +145,7 @@ CORS_ORIGIN_WHITELIST = [
 SESSION_COOKIE_SAMESITE = 'None'
 
 SESSION_COOKIE_SECURE = True
+
+# Configure Django App for Heroku, comment out when running locally
+import django_heroku
+django_heroku.settings(locals())

@@ -10,6 +10,8 @@ djangorestframework = "*"
 django-cors-headers = "*"
 django-environ = "*"
 openai = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
