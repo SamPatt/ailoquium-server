@@ -1,11 +1,9 @@
 import os
 import openai
 
-# Configure the OpenAI client with your API key
 client = openai.OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 
 def send_message_to_openai(user_message, message_history):
-    print("Printing history as soon as send_message func runs: ", message_history)
     # Add the new user message to the message history
     message_history.append({"role": "user", "content": user_message})
 
@@ -21,7 +19,6 @@ def send_message_to_openai(user_message, message_history):
         )
         if chat_completion.choices:
             ai_response = chat_completion.choices[0].message.content
-            # Add AI response to the history
             message_history.append({"role": "assistant", "content": ai_response})
             return ai_response, message_history
         else:
@@ -33,7 +30,5 @@ def send_message_to_openai(user_message, message_history):
 
 
 def modify_openai_response(api_response):
-    # Add your logic to modify the OpenAI API response
-    # For example, you might want to format it or extract certain information
-    # Return the modified response
+    # Add logic to modify the OpenAI API response
     pass
