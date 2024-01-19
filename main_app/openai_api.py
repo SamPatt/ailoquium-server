@@ -15,7 +15,7 @@ def send_message_to_openai(user_message, message_history):
         print("Message history", message_history)
         chat_completion = client.chat.completions.create(
             messages=message_history,
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo-1106",
         )
         if chat_completion.choices:
             ai_response = chat_completion.choices[0].message.content
