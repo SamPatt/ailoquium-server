@@ -137,10 +137,10 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:5173',
 ]
 
-# Modify this in production to only allow from my domain
-# CORS_ALLOWED_ORIGINS = [
-#     "https://your-react-app-domain.com",
-# ]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://main--stately-pavlova-72cf0f.netlify.app",
+]
 
 SESSION_COOKIE_SAMESITE = 'None'
 
