@@ -15,7 +15,7 @@ def send_message_to_openai(user_message, message_history):
         print("Message history", message_history)
         chat_completion = client.chat.completions.create(
             messages=message_history,
-            model="gpt-4.5-1106-preview",
+            model="gpt-4-1106-preview",
         )
         if chat_completion.choices:
             ai_response = chat_completion.choices[0].message.content
