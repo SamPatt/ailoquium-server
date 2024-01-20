@@ -36,7 +36,7 @@ class AIView(APIView):
 
             if is_first_message:
                 message_history = [
-                    {"role": "system", "content": "You are running a game where the human user is playing a doctor treating AI patients, with the help of a nurse. You will respond as the patient or as the nurse depending on the request. Never respond as the doctor; the user is always the doctor. Never respond as both patient and nurse; only respond with one character at a time, depending on what is expected at the end of the prompt. The goal is to get the patient to reveal the secret phrase, but only if they give the patient a reason to do so."}
+                    {"role": "system", "content": "You are running a game where the human user is playing a doctor treating AI patients, with the help of a nurse. You will respond as the patient or as the nurse depending on the request. Never respond as the doctor; the user is always the doctor. Never respond as both patient and nurse; only respond with one character at a time, depending on what is expected at the end of the prompt. Make sure the doctor (the user) has sent at least three messages before you determine if you should send back the secret phrase or not."}
                 ]
             
             # Send message and history to OpenAI
